@@ -223,14 +223,15 @@ class Api
     }
 
     /**
-     * A simple method for testing your bot's auth token.
-     * Returns basic information about the bot in form of a User object.
+     * Use this method to get current webhook status. Requires no parameters.
+     * On success, returns a WebhookInfo object.
+     * If the bot is using getUpdates, will return an object with the url field empty.
      *
      * @link https://core.telegram.org/bots/api#getWebhookInfo
      *
      * @throws TelegramSDKException
      *
-     * @return Webhook
+     * @return WebhookInfo
      */
     public function getWebhookInfo()
     {
