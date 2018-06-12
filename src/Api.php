@@ -17,6 +17,7 @@ use Telegram\Bot\Objects\UnknownObject;
 use Telegram\Bot\Objects\Update;
 use Telegram\Bot\Objects\User;
 use Telegram\Bot\Objects\UserProfilePhotos;
+use Telegram\Bot\Objects\WebhookInfo;
 use Telegram\Bot\Keyboard\Keyboard;
 
 /**
@@ -219,6 +220,23 @@ class Api
         $response = $this->post('getMe');
 
         return new User($response->getDecodedBody());
+    }
+
+    /**
+     * A simple method for testing your bot's auth token.
+     * Returns basic information about the bot in form of a User object.
+     *
+     * @link https://core.telegram.org/bots/api#getWebhookInfo
+     *
+     * @throws TelegramSDKException
+     *
+     * @return Webhook
+     */
+    public function getWebhookInfo()
+    {
+        $response = $this->get('getWebhookInfo');
+
+        return new WebhookInfo($response->getDecodedBody());
     }
 
     /**
