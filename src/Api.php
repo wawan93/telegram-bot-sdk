@@ -245,6 +245,44 @@ class Api
      *
      * <code>
      * $params = [
+     *   'chat_id'          => '',
+     *   'title'            => '',
+     *   'description'      => '',
+     *   'payload'          => '',
+     *   'provider_token'   => '',
+     *   'start_parameter'  => '',
+     *   'currency'         => '',
+     *   'prices'           => [],
+     * ];
+     * </code>
+     *
+     * @link https://core.telegram.org/bots/api#sendmessage
+     *
+     * @param array    $params
+     *
+     * @var int|string $params ['chat_id']
+     * @var string     $params ['title']
+     * @var string     $params ['description']
+     * @var string     $params ['payload']
+     * @var string     $params ['provider_token']
+     * @var string     $params ['start_parameter']
+     * @var string     $params ['currency']
+     * @var array      $params ['prices']
+     *
+     * @return Message
+     */
+    public function sendInvoice(array $params)
+    {
+        $response = $this->post('sendInvoice', $params);
+
+        return new Message($response->getDecodedBody());
+    }
+
+    /**
+     * Send text messages.
+     *
+     * <code>
+     * $params = [
      *   'chat_id'                  => '',
      *   'text'                     => '',
      *   'parse_mode'               => '',

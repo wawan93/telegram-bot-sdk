@@ -35,6 +35,7 @@ namespace Telegram\Bot\Objects;
  * @method int              getMigrateToChatId()        (Optional). The group has been migrated to a supergroup with the specified identifier, not exceeding 1e13 by absolute value.
  * @method int              getMigrateFromChatId()      (Optional). The supergroup has been migrated from a group with the specified identifier, not exceeding 1e13 by absolute value.
  * @method Message          getPinnedMessage()          (Optional). Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it is itself a reply.
+ * @method SuccessfulPayment    getSuccessfulPayment()
  */
 class Message extends BaseObject
 {
@@ -63,6 +64,7 @@ class Message extends BaseObject
             'left_chat_member' => User::class,
             'new_chat_photo'   => PhotoSize::class,
             'pinned_message'   => Message::class,
+            'successful_payment'   => SuccessfulPayment::class,
         ];
     }
 
